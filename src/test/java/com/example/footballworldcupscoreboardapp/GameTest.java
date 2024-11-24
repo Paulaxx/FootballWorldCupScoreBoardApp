@@ -41,6 +41,6 @@ public class GameTest {
     @Test
     public void testEndGame() {
         game.endGame();
-        assertEquals(true, game.isGameOver());
+        assertTrue(game.isGameOver());
     }
 }

@@ -3,7 +3,7 @@ package com.example.footballworldcupscoreboardapp;
 public class Game {
 
     private static int idCounter = 1;
-    private int id;
+    private final int id;
     private Team homeTeam;
     private Team awayTeam;
     private int homeScore;
