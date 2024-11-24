@@ -14,6 +14,8 @@ public class Game {
         this.id = idCounter++;
         this.homeTeam = homeTeam;
         this.awayTeam = awayTeam;
+        homeScore = 0;
+        awayScore = 0;
     }
 
     public int getId() {
@@ -45,5 +47,13 @@ public class Game {
 
     public int getAwayScore() {
         return awayScore;
+    }
+
+    public String getHomeTeamName() {
+        return homeTeam.getName();
+    }
+
+    public String getAwayTeamName() {
+        return awayTeam.getName();
     }
 }
