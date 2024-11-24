@@ -23,4 +23,27 @@ public class Game {
     public boolean isGameOver() {
         return gameOver;
     }
+
+    public void updateHomeScore(int newScore) {
+        homeScore = newScore;
+    }
+    public void updateAwayScore(int newScore) {
+        awayScore = newScore;
+    }
+
+    public int getTotalScore() {
+        return homeScore + awayScore;
+    }
+
+    public void endGame(){
+        gameOver = true;
+    }
+
+    public int getHomeScore() {
+        return homeScore;
+    }
+
+    public int getAwayScore() {
+        return awayScore;
+    }
 }

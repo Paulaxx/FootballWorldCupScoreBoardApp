@@ -28,4 +28,19 @@ public class GameTest {
         assertEquals(1, game.getId());
         assertFalse(game.isGameOver());
     }
+
+    @Test
+    public void testUpdateScores() {
+        game.updateHomeScore(2);
+        game.updateAwayScore(3);
+        assertEquals(2, game.getHomeScore());
+        assertEquals(3, game.getAwayScore());
+        assertEquals(5, game.getTotalScore());
+    }
+
+    @Test
+    public void testEndGame() {
+        game.endGame();
+        assertEquals(true, game.isGameOver());
+    }
 }
