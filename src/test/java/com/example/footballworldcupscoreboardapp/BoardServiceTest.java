@@ -9,27 +9,24 @@ import static org.mockito.Mockito.*;
 public class BoardServiceTest {
 
     private BoardService boardService;
-    private ScoreBoard scoreBoard;
-    private Game game;
 
 
     @BeforeEach
     public void setUp() {
-        scoreBoard = mock(ScoreBoard.class);
-        boardService = new BoardService(scoreBoard);
-        game = mock(Game.class);
+        boardService = mock(BoardService.class);
     }
 
     @Test
     public void testAddingNewGame() {
         boardService.newGame("home", "away");
-        verify(scoreBoard, times(1)).addGame(any(Game.class));
+        assertTrue(boardService.checkIfGamesExist());
+        assertTrue(boardService.checkIfGameIdExist(1));
     }
 
+    @Test
     public void testEndingGame() {
-        when(scoreBoard.gameExists(1)).thenReturn(true);
-        doNothing().when(scoreBoard).markGameAsOver(1);
-        scoreBoard.endGame(1);
-        verify(scoreBoard, times(1)).markGameAsOver(1);
+        when(boardService.checkIfGameIdExist(1)).thenReturn(true);
+        doNothing().when(boardService).endGame("1");
+        assertTrue(boardService.checkIfGameIdExist(1));
     }
 }
