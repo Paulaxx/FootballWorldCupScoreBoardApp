@@ -3,4 +3,8 @@ package com.example.footballworldcupscoreboardapp;
 public class Team {
 
     private String name;
+
+    public String getName() {
+        return name;
+    }
 }
