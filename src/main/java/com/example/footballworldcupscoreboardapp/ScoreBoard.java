@@ -16,7 +16,7 @@ public class ScoreBoard {
         return gamesList.size();
     }
 
-    public Object getGame(int id) {
+    public Game getGame(int id) {
         return gamesList.get(id);
     }
 
@@ -35,5 +35,9 @@ public class ScoreBoard {
 
     public boolean gameExists(Integer id) {
         return gamesList.containsKey(id);
+    }
+
+    public void markGameAsOver(int id) {
+        getGame(id).endGame();
     }
 }
