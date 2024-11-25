@@ -1,5 +1,7 @@
 package com.example.footballworldcupscoreboardapp;
 
+import java.util.Date;
+
 public class Game {
 
     private static int idCounter = 1;
@@ -9,6 +11,7 @@ public class Game {
     private int homeScore;
     private int awayScore;
     private boolean gameOver;
+    private Date gameDate;
 
     public Game(Team homeTeam, Team awayTeam) {
         this.id = idCounter++;
@@ -16,6 +19,8 @@ public class Game {
         this.awayTeam = awayTeam;
         homeScore = 0;
         awayScore = 0;
+        gameOver = false;
+        gameDate = new Date();
     }
 
     public int getId() {
@@ -55,5 +60,9 @@ public class Game {
 
     public String getAwayTeamName() {
         return awayTeam.getName();
+    }
+
+    public Date getGameDate() {
+        return gameDate;
     }
 }

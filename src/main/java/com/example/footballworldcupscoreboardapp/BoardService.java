@@ -28,4 +28,8 @@ public class BoardService {
     public void updateGame(String id, String teamChoice, String points){
         scoreBoard.updateScore(Integer.parseInt(id), teamChoice, Integer.parseInt(points));
     }
+
+    public void displayScoreBoard(){
+        scoreBoard.displayScores();
+    }
 }

@@ -1,8 +1,10 @@
 package com.example.footballworldcupscoreboardapp;
 
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class ScoreBoard {
 
@@ -39,5 +41,17 @@ public class ScoreBoard {
 
     public void markGameAsOver(int id) {
         getGame(id).endGame();
+    }
+
+    public void displayScores() {
+        AtomicInteger counter = new AtomicInteger();
+        counter.incrementAndGet();
+        if (!gamesList.isEmpty()) {
+            gamesList.values().stream()
+                    .filter(game -> !game.isGameOver()).sorted(Comparator.comparing(Game::getTotalScore)
+                            .thenComparing(Game::getGameDate))
+                    .forEach(game -> System.out.println(counter.getAndIncrement() + " " + game.getHomeTeamName() + " " + game.getHomeScore() + " - "
+                            + game.getAwayTeamName() + " " + game.getAwayScore()));
+        }
     }
 }
