@@ -1,11 +1,14 @@
 package com.example.footballworldcupscoreboardapp;
 
+import org.springframework.stereotype.Component;
+
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 import java.util.concurrent.atomic.AtomicInteger;
 
+@Component
 public class ScoreBoard {
 
     private Map<Integer, Game> gamesList = new HashMap<>();

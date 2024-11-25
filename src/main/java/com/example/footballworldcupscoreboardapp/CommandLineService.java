@@ -1,15 +1,26 @@
 package com.example.footballworldcupscoreboardapp;
 
+import jakarta.annotation.PreDestroy;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import java.util.Scanner;
 
+@Service
 public class CommandLineService {
 
     private final Scanner scanner;
     private final BoardService boardService;
 
+    @Autowired
     public CommandLineService(BoardService boardService) {
         this.scanner = new Scanner(System.in);
         this.boardService = boardService;
+    }
+
+    @PreDestroy
+    public void preDestroy() {
+        scanner.close();
     }
 
     public void startInteraction(){
@@ -21,7 +32,7 @@ public class CommandLineService {
             case 1:
                 displayNewGameInstructions();
                 String[] teamsNames = getTeamsNames(scanner.nextLine());
-                boardService.newGame(teamsNames[0], teamsNames[1]);
+                boardService.newGame(teamsNames);
                 break;
             case 2:
                 if(!boardService.checkIfGamesExist()){
@@ -84,5 +95,13 @@ public class CommandLineService {
 
     private void displayWrongInstruction(){
         System.out.println("\nInvalid number\n");
+    }
+
+    public void displayInstruction(){
+        System.out.println("\nChoose what you want to do:\n" +
+                "1 - Start a game\n" +
+                "2 - Finish a game\n" +
+                "3 - Update score\n" +
+                "4 - Get a summary\n");
     }
 }

@@ -18,7 +18,7 @@ public class BoardServiceTest {
 
     @Test
     public void testAddingNewGame() {
-        boardService.newGame("home", "away");
+        boardService.newGame("home away".split(" "));
         assertTrue(boardService.checkIfGamesExist());
         assertTrue(boardService.checkIfGameIdExist(1));
     }
