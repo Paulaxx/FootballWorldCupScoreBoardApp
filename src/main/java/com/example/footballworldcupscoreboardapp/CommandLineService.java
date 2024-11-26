@@ -98,10 +98,13 @@ public class CommandLineService {
     }
 
     public void displayInstruction(){
-        System.out.println("\nChoose what you want to do:\n" +
-                "1 - Start a game\n" +
-                "2 - Finish a game\n" +
-                "3 - Update score\n" +
-                "4 - Get a summary\n");
+        System.out.println("""
+                
+                Choose what you want to do:
+                1 - Start a game
+                2 - Finish a game
+                3 - Update score
+                4 - Get a summary
+                """);
     }
 }

@@ -6,12 +6,12 @@ public class Game {
 
     private static int idCounter = 1;
     private final int id;
-    private Team homeTeam;
-    private Team awayTeam;
+    private final Team homeTeam;
+    private final Team awayTeam;
     private int homeScore;
     private int awayScore;
     private boolean gameOver;
-    private Date gameDate;
+    private final Date gameDate;
 
     public Game(Team homeTeam, Team awayTeam) {
         this.id = idCounter++;
@@ -34,6 +34,7 @@ public class Game {
     public void updateHomeScore(int newScore) {
         homeScore = newScore;
     }
+
     public void updateAwayScore(int newScore) {
         awayScore = newScore;
     }
